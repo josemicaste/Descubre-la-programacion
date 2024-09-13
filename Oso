@@ -1,0 +1,33 @@
+void cara(){
+  fill(255,254,254);
+  ellipse (160,160,200,200);
+}
+void ojos(){
+  noFill();
+  ellipse(120,120,50,50);
+  ellipse(200,120,50,50);
+  fill(0,0,0);
+  ellipse(120,120,5,5);
+  ellipse(200,120,5,5);
+}
+void nariz(){
+  noFill();
+  ellipse(160,160,30,10);
+}
+void boca(){
+  ellipse(160,200,80,10);
+}
+void orejas(){
+  fill(255,255,255);
+  ellipse(80,80,100,100);
+  ellipse(240,80,100,100);
+}
+
+void main() {
+   orejas();
+	cara();
+  ojos();
+  nariz();
+  boca();
+ 
+}
