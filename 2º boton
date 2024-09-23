@@ -1,0 +1,29 @@
+
+void main(){
+ animate(ejecutar) ;
+}
+void ejecutar(){
+ 
+  control();
+   imagen();
+}
+
+
+void imagen(){
+  fill(201,29,29);
+  rect(120,120,80,80);
+}
+void control(){
+  //posicion raton
+  print ( "X: " + mouseX);
+  println ( " Y: " + mouseY);
+  if (mouseX > 120 && mouseX < 200 ){
+    println ("En la X");
+  }
+  if (mouseY > 120 && mouseY < 200){
+    println ("En la Y");
+  } 
+  if (mousePressed == true && mouseButton == LEFTBUTTON) {
+    println ("mousePressed = " + mousePressed +" ");
+						background(255,255,255);
+  }}
