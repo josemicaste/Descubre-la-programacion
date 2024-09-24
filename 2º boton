@@ -1,35 +1,24 @@
-int x = 120;
-int y = 120;
-int ancho = 80;
-int alto = 80;
-
 void main(){
- animate(ejecutar) ;
+ animate(ejecutar); 
 }
 void ejecutar(){
- 
+  
   control();
-   imagen();
+  imagen();
 }
-
-
 void imagen(){
-  fill(201,29,29);
-  rect(x,y,ancho,alto);
+  rect(120,120,80,80);
 }
 void control(){
-  //posicion raton
-  print ( "X: " + mouseX);
-  println ( " Y: " + mouseY);
-  if (mouseX > 120 && mouseX < 200 && mouseY > 120 && mouseY < 200 && mousePressed == true && mouseButton == LEFTBUTTON) {
-            
-            println ("En la X");	      
-     				println ("En la Y");
-            println ("mousePressed = " + mousePressed +" ");
-						background(255,255,255);
-  }
-  else{
-    background(0,0,0);
-  }
-  
+  background(255,255,255);
+  println ("X: " + mouseX);
+  println ("Y: " +mouseY);
+   if (mousePressed) {
+    if (mouseButton == LEFTBUTTON) {
+      if (mouseX > 120 && mouseX < 200 || mouseY > 120 && mouseY < 200){
+          background(255,0,0);
+    	ellipse(mouseX, mouseY, 50,50);
+          
+        }}
+  }  
 }
