@@ -1,0 +1,24 @@
+//Realiza un temporizador que tras una cuenta atrás de 5 segundos,
+//cambie aleatoriamente el color del fondo de la pantalla
+
+//varialbe para inicializar el tiempo
+int t1 = millis()/1000;
+
+void main(){
+  animate(ejecutar);
+}
+
+
+void ejecutar(){
+//variable para  calcular la diferencia de tiempo desde que inicio el programa
+  int a = t1 - millis()/1000;
+  println ("milis-t1 "+ a );
+  //Si han pasado 5 segundo, reinicializas las variables y cambias el color
+  //del fondo
+  if(a<=-5){
+    t1=millis()/1000;
+    a = t1 - millis()/1000;
+    background(random(256),random(256),random(256));
+  }
+ 
+}
