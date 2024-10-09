@@ -1,3 +1,8 @@
+//Realiza un botón. Que al pulsar sobre el y solo sobre el, suceda algo.
+// Añade la funcionalidad para que funcione solo una vez cuando pulses
+//y que aunque se mantenga pulsado no continúe realizándose la acción del botón.
+boolean pulsado = true;
+
 void main(){
  animate(ejecutar); 
 }
@@ -13,12 +18,16 @@ void control(){
   background(255,255,255);
   println ("X: " + mouseX);
   println ("Y: " +mouseY);
-   if (mousePressed) {
+   if (mousePressed && pulsado ==true) {
     if (mouseButton == LEFTBUTTON) {
-      if (mouseX > 120 && mouseX < 200 || mouseY > 120 && mouseY < 200){
+      if (mouseX > 120 && mouseX < 200 && mouseY > 120 && mouseY < 200){
           background(255,0,0);
     	ellipse(mouseX, mouseY, 50,50);
+        pulsado= false;
           
         }}
-  }  
+  }
+  if(mousePressed == false){
+  pulsado = true;}
+  
 }
