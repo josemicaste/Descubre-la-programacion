@@ -1,0 +1,45 @@
+int tX = 50;
+int tY = 50;
+int x = 160-tX;
+int y = 160-tY;
+int velocidad = 20;
+
+void main() {
+  animate(controles);
+}
+
+
+void controles() {
+  player();
+  if (keyPressed && key =="up") {
+    y = y-velocidad;
+    }
+  if (keyPressed && key =="down") {
+    y = y+velocidad;
+    }
+  if (keyPressed && key =="left") {
+    x = x-velocidad;
+    }
+  if (keyPressed && key =="right") {
+    x = x+velocidad;
+    }
+  //limites
+  if (x <= 0){
+    x = 0;
+  }
+  if (x >= 320-tX){
+    x = 320-tX;
+  }
+  if (y <= 0){
+    y = 0;
+  }
+  if (y >= 320-tY){
+    y = 320-tY;
+  }
+}
+
+
+void player(){
+  background(0,0,0);
+  rect (x,y,tX,tY);
+}
