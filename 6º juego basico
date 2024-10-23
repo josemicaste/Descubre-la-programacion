@@ -1,0 +1,128 @@
+void main(){
+  animate(juego);
+}
+
+void juego(){
+  background(163,52,52);
+  player();
+  enemigo();
+  PotPuntos();
+  HUD();
+  PotFreno();
+}
+
+//Enemigo
+int PosEneX = 160;
+int PosEneY = 50;
+int velEne = 5;
+void enemigo(){
+  //Dibujo
+  fill(19,128,17);
+  int EneX = 20;
+  int EneY = 20;
+  
+  //dibujo del enemigo
+  ellipse(PosEneX,PosEneY,EneX,EneY);
+  //Movimiento enemigo
+ // PosEneX += 1;
+  //PosEneY += 1;
+  //Movimiento enemigo *perseguir al player
+  if (PosEneX > x+tX/2){
+    PosEneX = PosEneX - velEne;
+  }
+  if (PosEneX < x+tX/2){
+    PosEneX = PosEneX + velEne;
+  } 
+  if (PosEneY > y+tY/2){
+    PosEneY = PosEneY - velEne;
+  }
+  if (PosEneY < y+tY/2){
+    PosEneY = PosEneY + velEne;
+  } 
+}
+
+//Player
+
+int tX = 20;
+int tY = 20;
+int x = 160-tX;
+int y = 160-tY;
+int velocidad = 10;
+void player() {
+ 
+    
+  //dibujo del player
+  fill(255,255,255);
+  rect (x,y,tX,tY);
+  if (keyPressed && key =="up") {
+    y = y-velocidad;
+    }
+  if (keyPressed && key =="down") {
+    y = y+velocidad;
+    }
+  if (keyPressed && key =="left") {
+    x = x-velocidad;
+    }
+  if (keyPressed && key =="right") {
+    x = x+velocidad;
+    }
+  //limites
+  if (x <= 0){
+    x = 0;
+  }
+  if (x >= 320-tX){
+    x = 320-tX;
+  }
+  if (y <= 0){
+    y = 0;
+  }
+  if (y >= 320-tY){
+    y = 320-tY;
+  }
+}
+
+
+//Moneda puntos
+double MonX = random (10,310);
+double MonY = random (10,310);
+int puntos = 0;
+void PotPuntos(){
+  //Dibujo moneda
+  fill(229,249,15);
+  ellipse(MonX, MonY, 20,20);
+  fill(0,0,0);
+  textSize(5);
+  text ("10", MonX-4,MonY+2);
+  
+  //Puntuar
+  if (x+(tX/2)+5 > MonX && x+(tX/2)-5 <MonX && y+(tY/2)+5 > MonY && y+(tY/2)-5 <MonY){
+    puntos += 10;
+    MonX = random (10,310);
+		MonY = random (10,310);
+  }
+}
+
+//Puntuacion
+void HUD(){
+  fill(0,0,0);
+  textSize(10);
+  text (puntos, 10,15);
+}
+
+//Frenar al enemigo
+double PotX = random (10,310);
+double PotY = random (10,310);
+void PotFreno(){
+  //Dibujo moneda
+  fill(15,249,210);
+  ellipse(PotX, PotY, 20,20);
+  fill(0,0,0);
+
+  //Frenar
+  if (x+(tX/2)+5 > PotX && x+(tX/2)-5 < PotX && y+(tY/2)+5 > PotY && y+(tY/2)-5 < PotY){
+    velEne = 2;
+    
+    PotX = random (10,310);
+		PotY = random (10,310);
+  }
+}
