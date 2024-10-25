@@ -8,7 +8,8 @@ void juego(){
   enemigo();
   PotPuntos();
   HUD();
-  PotFreno();
+  temp(5);
+  //PotFreno();
 }
 
 //Enemigo
@@ -106,18 +107,21 @@ void PotPuntos(){
 void HUD(){
   fill(0,0,0);
   textSize(10);
-  text (puntos, 10,15);
+  text ("PUNTOS:   " + puntos, 10,15);
 }
 
 //Frenar al enemigo
 double PotX = random (10,310);
 double PotY = random (10,310);
+
 void PotFreno(){
-  //Dibujo moneda
+  //Dibujo potenciador de freno del enemigo
   fill(15,249,210);
   ellipse(PotX, PotY, 20,20);
   fill(0,0,0);
-
+	animate(juego);
+}
+void PotFrenoCtrl(){
   //Frenar
   if (x+(tX/2)+5 > PotX && x+(tX/2)-5 < PotX && y+(tY/2)+5 > PotY && y+(tY/2)-5 < PotY){
     velEne = 2;
@@ -125,4 +129,21 @@ void PotFreno(){
     PotX = random (10,310);
 		PotY = random (10,310);
   }
+}
+
+//Temporizador 
+int t1 = millis()/1000;
+void temp(int t){
+//variable para  calcular la diferencia de tiempo desde que inicio el programa
+  int a = -t1 + millis()/1000;
+  println ("milis-t1 "+ a );
+  //Si han pasado 5 segundo, reinicializas las variables y cambias el color
+  //del fondo
+  if(a>=t){
+    t1=millis()/1000;
+    a = - t1 + millis()/1000;
+    PotFreno();
+    
+  }
+ 
 }
