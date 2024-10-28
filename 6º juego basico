@@ -9,13 +9,16 @@ void juego(){
   PotPuntos();
   HUD();
   temp(5);
-  //PotFreno();
+  PotFreno();
+  tiempoFreno();
 }
 
 //Enemigo
 int PosEneX = 160;
 int PosEneY = 50;
-int velEne = 5;
+int velEneOri = 5;
+int velEne = velEneOri;
+int velEneFre = 2;
 void enemigo(){
   //Dibujo
   fill(19,128,17);
@@ -113,37 +116,62 @@ void HUD(){
 //Frenar al enemigo
 double PotX = random (10,310);
 double PotY = random (10,310);
-
+int frenado = 1;
 void PotFreno(){
   //Dibujo potenciador de freno del enemigo
+ if (tiempo == -1){
+   	PotX = random (10,310);
+		PotY = random (10,310);
+    }
+  if (tiempo == 1 ){
+    
   fill(15,249,210);
   ellipse(PotX, PotY, 20,20);
   fill(0,0,0);
-	animate(juego);
-}
-void PotFrenoCtrl(){
+	
+
+  //mostrar el potenciador
+  
   //Frenar
   if (x+(tX/2)+5 > PotX && x+(tX/2)-5 < PotX && y+(tY/2)+5 > PotY && y+(tY/2)-5 < PotY){
-    velEne = 2;
-    
+    velEne = velEneFre;
+   	frenado = -1;
     PotX = random (10,310);
 		PotY = random (10,310);
-  }
+  }}
 }
 
 //Temporizador 
 int t1 = millis()/1000;
+int tiempo = -1;
 void temp(int t){
-//variable para  calcular la diferencia de tiempo desde que inicio el programa
+  //variable para  calcular la diferencia de tiempo desde que inicio el programa
   int a = -t1 + millis()/1000;
-  println ("milis-t1 "+ a );
-  //Si han pasado 5 segundo, reinicializas las variables y cambias el color
-  //del fondo
   if(a>=t){
     t1=millis()/1000;
     a = - t1 + millis()/1000;
-    PotFreno();
+    tiempo =tiempo*(-1);
     
   }
  
+}
+void tiempoFreno(){
+  if (frenado == -1){
+    
+  tempEneFre(5);
+}
+}
+//Tiempo de frenado del enemigo
+int t2 = millis()/1000;
+//int tiempo = -1;
+void tempEneFre(int t){
+  //variable para  calcular la diferencia de tiempo desde que inicio el programa
+  int a = -t1 + millis()/1000;
+  if(a>=t){
+    print (velEne);
+    t2=millis()/1000;
+    a = - t1 + millis()/1000;
+    velEne = velEneOri;
+    frenado = -1;
+  }
 }
