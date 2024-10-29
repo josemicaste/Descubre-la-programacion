@@ -1,0 +1,37 @@
+void main(){
+  animate(juego);
+}
+void juego(){
+  fondo();
+  player();
+  tubos();
+}
+
+
+void fondo(){
+  background(24,185,207);
+}
+
+
+int velP = 10;
+int posP = 160;
+int impulso = 20;
+void player(){
+  fill(255,255,255);
+  ellipse(160,posP,10,10);
+  posP = posP + velP;
+   if (keyPressed && key == "up") {
+    posP = posP - impulso; 
+   
+}
+}
+
+int posTx = 340;
+int posTy = -100;
+void tubos(){
+  fill(77,173,36);
+  rect(posTx,posTy,20,200);
+  rect(posTx,posTy+100+100,20,200);
+  posTx = posTx - 5;
+  
+}
