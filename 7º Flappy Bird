@@ -5,6 +5,7 @@ void juego(){
   fondo();
   player();
   tubos();
+  choque();
 }
 
 
@@ -13,12 +14,14 @@ void fondo(){
 }
 
 
-int velP = 10;
-int posP = 160;
+int velP = 5;
+int posP = 20;
+int posPx =40;
+int tamX =10;
 int impulso = 20;
 void player(){
   fill(255,255,255);
-  ellipse(160,posP,10,10);
+  ellipse(posPx,posP,tamX,10);
   posP = posP + velP;
    if (keyPressed && key == "up") {
     posP = posP - impulso; 
@@ -28,10 +31,25 @@ void player(){
 
 int posTx = 340;
 int posTy = -100;
+int anchoTubo = 20;
 void tubos(){
   fill(77,173,36);
-  rect(posTx,posTy,20,200);
-  rect(posTx,posTy+100+100,20,200);
+  rect(posTx,posTy,anchoTubo,300);
+  rect(posTx,posTy+300+50,anchoTubo,300);
   posTx = posTx - 5;
-  
+  if (posTx < 0){
+    posTx = 320;
+    posTy = round(random(-290,0));
+  }
+}
+
+void choque(){
+  if (posTx<posPx+tamX && posTx+anchoTubo>posPx-tamX){
+    println("antes");
+  }
+  /*    
+  if (posTx+anchoTubo>posPx-tamX){
+    println("tocado");
+    
+  }*/
 }
