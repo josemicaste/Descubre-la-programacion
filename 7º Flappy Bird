@@ -13,43 +13,61 @@ void fondo(){
   background(24,185,207);
 }
 
-
+//PLAYER
 int velP = 5;
-int posP = 20;
-int posPx =40;
-int tamX =10;
+int posPy = 20;
+int posPx =80;
+int tamP =10;
 int impulso = 20;
 void player(){
   fill(255,255,255);
-  ellipse(posPx,posP,tamX,10);
-  posP = posP + velP;
+  ellipse(posPx,posPy,tamP,10);
+  posPy = posPy + velP;
    if (keyPressed && key == "up") {
-    posP = posP - impulso; 
+    posPy = posPy - impulso; 
    
 }
 }
 
+//TUBOS
 int posTx = 340;
 int posTy = -100;
-int anchoTubo = 20;
+int anchoTubo = 100;
+int altoTubo = 300;
+int sepTubos = 100;
 void tubos(){
   fill(77,173,36);
-  rect(posTx,posTy,anchoTubo,300);
-  rect(posTx,posTy+300+50,anchoTubo,300);
+  rect(posTx,posTy,anchoTubo,altoTubo);
+  rect(posTx,posTy+altoTubo+sepTubos,anchoTubo,altoTubo);
   posTx = posTx - 5;
   if (posTx < 0){
     posTx = 320;
     posTy = round(random(-290,0));
+    sepTubos = round(random(60,150));
   }
 }
 
+//Contacto player con los tubos
+int antes = 0;
+int tocado = 0;
 void choque(){
-  if (posTx<posPx+tamX && posTx+anchoTubo>posPx-tamX){
-    println("antes");
-  }
-  /*    
-  if (posTx+anchoTubo>posPx-tamX){
-    println("tocado");
+  
+   if (posTx<posPx-tamP && posTx+anchoTubo>posPx+tamP){
+    antes = antes +1;
+    println("antes" + antes);
+       fill(0,255,32);
+    ellipse(160,160,10,10);
+ 
+  }   
+  
+  
+  
+  if (posTy+altoTubo>posPy-tamP && posTy+altoTubo>posPy+tamP){
+  tocado = tocado +1;
+    println("tocado"+ tocado);
+    fill(255,0,0);
+    ellipse(160,140,10,10);
     
-  }*/
+   
+  }
 }
