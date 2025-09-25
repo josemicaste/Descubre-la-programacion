@@ -42,6 +42,7 @@ void pos (){
 oso(mouseX,mouseY,tamano);
 }
 
+
 void main() {
    animate(pos);
  
