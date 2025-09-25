@@ -27,8 +27,25 @@ void oso(int x, int y, double escala){
 
 }
 
+double tamano = 1;
+void pos (){
+  background(50,205,62);
+  if (mousePressed) {
+    if (mouseButton == RIGHTBUTTON) {
+    	tamano = tamano + 0.1;
+    }
+    if (mouseButton == LEFTBUTTON) {
+    	tamano = tamano - 0.1;
+    }
+  
+}
+oso(mouseX,mouseY,tamano);
+}
 
 void main() {
-   oso(160,160,0.6);
+   animate(pos);
  
 }
+
+
+
