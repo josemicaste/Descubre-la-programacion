@@ -27,18 +27,23 @@ void oso(int x, int y, double escala){
 
 }
 
+boolean pulsado = true;
 double tamano = 1;
 void pos (){
   background(50,205,62);
   if (mousePressed) {
-    if (mouseButton == RIGHTBUTTON) {
+    if (mouseButton == RIGHTBUTTON && pulsado ==true) {
     	tamano = tamano + 0.1;
+      pulsado= false;
     }
-    if (mouseButton == LEFTBUTTON) {
+    if (mouseButton == LEFTBUTTON && pulsado ==true) {
     	tamano = tamano - 0.1;
+      pulsado= false;
     }
   
 }
+  if(mousePressed == false){
+  pulsado = true;}
 oso(mouseX,mouseY,tamano);
 }
 
@@ -47,6 +52,3 @@ void main() {
    animate(pos);
  
 }
-
-
-
