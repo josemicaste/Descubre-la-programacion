@@ -33,7 +33,7 @@ void juego(){
       if (mouseX > 120 && mouseX < 200 && mouseY > 120 && mouseY < 200){
           background(255,0,0);
     	animate(menuPrincipal);
-          
+       pulsado= false;    
         }}
   }
   if(mousePressed == false){
