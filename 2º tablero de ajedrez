@@ -1,0 +1,32 @@
+void main(){
+  for (int i = 0 ; i < 320 ; i = i+80){
+		filaPar(0,i);
+		filaImpar(0,i);
+  }
+}
+
+void negro(int x, int y){
+  stroke(0,0,0);
+  fill(0,0,0);
+  rect(x,y,40,40);
+}
+
+void blanco(int x, int y){
+  stroke(255,255,255);
+  fill(255,255,255);
+  rect(x,y,40,40);
+}
+
+void filaPar (int i , int u){
+      for ( i = 0 ; i < 320 ; i=i+80 ) {
+      negro(i + 40 , u );
+      blanco(i , u);
+      }
+}
+
+void filaImpar (int i , int u){
+      for ( i = 0 ; i < 320 ; i=i+80 ) {
+      negro(i , u+40);
+      blanco(i + 40 , u + 40);
+      }
+}
