@@ -1,0 +1,50 @@
+int velocidad = 10;
+int radio = 50;
+
+int x = 0;
+int x1; 
+//Comento el movimiento en y
+
+int y = 160;
+int y1 = 160;
+
+void main(){
+  animate(movimiento);
+    
+}
+
+void movimiento() {
+  background(132,78,78);
+  ellipse(x,y,radio,radio);
+  x = x + velocidad;
+  x1 = x - 320;
+  /*
+  y = y + velocidad;
+  y1 = y - 320;
+  */
+  if (x > 320-radio){
+   
+    ellipse(x1,y1,radio,radio);
+    println ("x1: " + x1);
+  }
+
+  println("x: " + x);
+  
+  if (x >= 320 + radio)
+    {
+    x=0+radio;
+  }
+    
+  /*
+  if (y > 320-radio){
+   
+    ellipse(x1,y1,radio,radio);
+    println ("y1: " + y1);
+  }
+  
+  if (y == 320 + radio)
+    {
+    y=0+radio;
+  }
+  */
+}
