@@ -1,0 +1,264 @@
+int posX;
+int posY;
+int r;
+int g;
+int b; 
+
+boolean unoUno;
+boolean unoDos;
+boolean unoTres;
+boolean dosUno;
+boolean dosDos;
+boolean dosTres;
+boolean tresUno;
+boolean tresDos;
+boolean tresTres;
+
+boolean unoUnoVacio = true;
+boolean unoDosVacio = true;
+boolean unoTresVacio = true;
+boolean dosUnoVacio = true;
+boolean dosDosVacio = true;
+boolean dosTresVacio = true;
+boolean tresUnoVacio = true;
+boolean tresDosVacio = true;
+boolean tresTresVacio = true;
+
+boolean pulsado;
+int jugada;
+
+
+void main(){
+  tablero();
+  animate(animador);  
+}
+
+void animador(){
+  //click();
+  ponerFicha();
+  ratonSinPulsar();
+  
+ 
+  
+}
+
+void tablero(){
+  background(255,255,255);
+  line(320/3,0,320/3,320);
+  line(320*2/3,0,320*2/3,320);
+  line(0,320/3,320,320/3);
+  line(0,320*2/3,320,320*2/3);
+}
+
+void click(){
+  if(mousePressed == true && pulsado == false) {
+    jugada +=1;
+    pulsado = true;
+    println ("jugada nº: " + jugada);
+    } 
+}
+void ratonSinPulsar(){
+  if(mousePressed == false) {
+    pulsado = false;
+    //println("raton sin pulsar");
+  }
+}
+
+void ficha(int posX, int posY, int r, int g, int b){
+  if (jugada % 2 == 0){
+    r = 255;
+    g = 0;
+    b = 0;
+  }
+  if (jugada % 2 != 0){
+    r = 0;
+    g = 0;
+    b = 255;
+  }  
+  fill(r, g, b);
+  ellipse (posX,posY,50,50);
+}
+
+
+void ponerFicha(){
+  if (mousePressed) {
+    if (mouseButton == LEFTBUTTON) {
+      //Primera fila
+      if (mouseX < 320/3 && mouseY < 320/3 
+          && unoUno == false && unoUnoVacio == true && pulsado == false)
+        {
+        unoUnoVacio = false;
+        unoUno = true;
+        posX = 320/6;
+        posY = 320/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("unoUno");
+      	}
+      if (320/3 < mouseX && mouseX < 320*2/3 && mouseY < 320/3 
+          && unoDos == false && unoDosVacio == true && pulsado == false)
+        {
+        unoDosVacio = false;
+        unoDos = true;
+        posX = 320/2;
+        posY = 320/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("unoDos");
+      	}
+      if (320*2/3 < mouseX && mouseX < 320*3/3 && mouseY < 320/3 
+          && unoTres == false && unoTresVacio == true && pulsado == false)
+        {
+        unoTresVacio =false;
+        unoTres = true;
+        posX = 320*5/6;
+        posY = 320/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("unoTres");
+      	}
+      //Segunda fila
+      if (mouseX < 320/3 && 320/3 < mouseY && mouseY < 320*2/3 
+          && dosUno == false && dosUnoVacio == true && pulsado == false)
+        {
+        dosUnoVacio = false;
+        dosUno = true;
+        posX = 320/6;
+        posY = 320/2;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("dosUno");
+      	}
+      if (320/3 < mouseX && mouseX < 320*2/3 && 320/3 < mouseY && mouseY < 320*2/3 
+          && dosDos == false && dosDosVacio == true && pulsado == false)
+        {
+        dosDosVacio = false;
+        dosDos = true;
+        posX = 320/2;
+        posY = 320/2;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("dosDos");
+      	}
+      if (320*2/3 < mouseX && mouseX < 320*3/3 && 320/3 < mouseY && mouseY < 320*2/3 
+          && dosTres == false && dosTresVacio == true && pulsado == false)
+        {
+        dosTresVacio = false;
+        dosTres = true;
+        posX = 320*5/6;
+        posY = 320/2;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("dosTres");
+      	}
+      //tercera fila
+      if (mouseX < 320/3 && 320*2/3 < mouseY && mouseY < 320 
+          && tresUno == false && tresUnoVacio == true && pulsado == false)
+        {
+        tresUnoVacio = false;
+        tresUno = true;
+        posX = 320/6;
+        posY = 320*5/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("tresUno");
+      	}
+      if (320/3 < mouseX && mouseX < 320*2/3 && 320*2/3 < mouseY && mouseY < 320 
+          && tresDos == false && tresDosVacio == true && pulsado == false)
+        {
+        tresDosVacio = false;
+        tresDos = true;
+        posX = 320/2;
+        posY = 320*5/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+				//println("tresDos");
+      	}
+      if (320*2/3 < mouseX && mouseX < 320*3/3 && 320*2/3 < mouseY && mouseY < 320 
+          && tresTres == false && tresTresVacio == true && pulsado == false)
+        {
+        tresTresVacio = false;
+        tresTres = true;
+        posX = 320*5/6;
+        posY = 320*5/6;
+        ficha(posX, posY, r, g, b);
+        click();
+        ubicacionFichas();
+        //println("tresTres");
+      	}
+      
+    }
+  }
+}
+
+
+boolean uno1 = false;
+boolean uno2 = false;
+boolean uno3 = false;
+boolean dos1 = false;
+boolean dos2 = false;
+boolean dos3 = false;
+boolean tres1 = false;
+boolean tres2 = false;
+boolean tres3 = false;
+
+void ubicacionFichas(){
+  /*
+  int[] rayaX;
+  rayaX = new int[9];
+  rayaX[jugada-1] = posX;
+	println ("jugada_X " + jugada + ", posX: " + rayaX[jugada-1]);
+
+  int[] rayaY;
+  rayaY = new int[9];
+  rayaY[jugada-1] = posY;
+	println ("jugada_Y " + jugada + ", posY: " + rayaY[jugada-1]);
+*/
+
+  int[] imparX;
+  imparX = new int[9];
+  
+  int[] parX;
+  parX = new int[9];  
+  
+  int[] imparY;
+  imparY = new int[9];
+  
+  int[] parY;
+  parY = new int[9]; 
+
+//Ganar
+  
+ /* if (rayaX[jugada%2] == 53 && rayaY[jugada%2] ==53/* &&
+      rayaX[jugada%2] == 53 && rayaY[jugada%2] ==53 ){
+    println("arriba izquierda");
+    */
+  //}
+  
+if (jugada%2 == 0){
+  	parX[jugada] =posX;
+  	println("x: " + parX[jugada]);
+    parY[jugada] =posY;
+  	println("Y: " + parY[jugada]);
+   	println("jugada PAR");
+ }
+  
+ if (jugada%2 != 0){
+    imparX[jugada] =posX;
+  	println("X: " + imparX[jugada]);
+    imparY[jugada] =posY;
+  	println("Y: " + imparY[jugada]);
+  	println("jugada IMPAR");
+ 
+ }
+  
+}
+
