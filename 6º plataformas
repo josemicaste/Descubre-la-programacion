@@ -1,0 +1,150 @@
+boolean dere;
+boolean izq;
+boolean up;
+boolean down;
+
+int x = 160;
+int y ;
+int avance = 20;
+int salto = 50;
+int gravedad = 5;
+int posSuelo = 280;
+int tamanoPlayerX = 15;
+int tamanoPlayerY = 15;
+double posTriX = random();
+double posTriY = random();
+int puntos = 0;
+
+int movEnemigoX = 5;
+
+int T_inicio = minute()*60 + second();
+int Tiempo_juego = (minute()*60 + second() - T_inicio );
+int Tiempo_cuenta_atras = 2;
+
+
+
+void main(){
+  animate(dibuja);
+}
+
+void dibuja(){
+  readyGo();
+  player();
+  posicion();
+  controles();
+  
+  
+}
+
+void enemigoTri(double posTriX, double posTriY ){
+ triangle(posTriX,posTriY, posTriX+10,posTriY, posTriX+5,posTriY+5);
+ 
+}
+
+
+void readyGo(){
+
+  Tiempo_juego = (minute()*60 + second()  );
+  if (T_inicio + Tiempo_cuenta_atras - Tiempo_juego == 0){
+    T_inicio = minute()*60 + second();
+    Tiempo_juego = (minute()*60 + second() - T_inicio ); 
+   // println("reset time");
+    posTriX = random(0,320);
+		posTriY = random(0,160);
+    } 
+}
+
+void player(){
+  background(231,215,215);
+  //Player
+  fill(255,0,0);
+  ellipse(x,y+tamanoPlayerY,tamanoPlayerX,tamanoPlayerY);
+  //EnemigoTri
+  fill(209,255,0);
+  enemigoTri(posTriX,posTriY);
+  posTriY = posTriY + movEnemigoX;
+  //Suelo
+  fill(72,157,43);
+  rect(0, posSuelo + (1.5)*tamanoPlayerX, 320,50);
+  //HUD 
+  puntuacion();
+}
+
+void posicion(){
+  if (x > 310){
+    x = 310;
+  }
+  if (x < 10){
+    x = 10;
+  }
+ 
+  if (y < posSuelo)
+    //println("y: " + y);
+    y = y + gravedad;
+  
+  
+  if (y > posSuelo ){
+    y = posSuelo ;
+  }
+  
+}
+
+
+void controles(){
+	arriba();
+	abajo();
+	izquierda();
+	derecha();
+}
+
+
+void arriba(){
+  if (keyPressed && key == "up" && y == posSuelo){
+    //println("arriba");
+    y = y - salto;
+    tamanoPlayerY = tamanoPlayerX/2;
+  }
+}
+int posYagachado = posSuelo + 12;
+void abajo(){
+  if (keyPressed && key == "down"){
+    tamanoPlayerY = tamanoPlayerX/2;
+    
+    y = posYagachado ;
+  }}
+void onKeyReleased(){
+  //println("teclas sueltas");
+  //println(tamanoPlayerY);
+    tamanoPlayerY = tamanoPlayerX;
+    
+  
+
+    //println("abajo");
+}
+void derecha(){
+  if (keyPressed && key == "right"){
+    //println("derecha");
+    x += avance;
+  }
+}
+void izquierda(){
+  if (keyPressed && key == "left"){
+   	//println("izquierda");
+    x -= avance;
+  }
+}
+
+boolean tocado;
+void puntuacion(){
+  text("Puntos: " + puntos, 20,20);
+  if(ceil(posTriX)-tamanoPlayerX < x && ceil(posTriX)+tamanoPlayerX > x  &&
+     ceil(posTriY)-10 < y && ceil(posTriY)+10 > y )
+  	{
+     tocado = true;
+    }
+  if (tocado == true)
+    {
+    puntos += 1;
+    tocado = false;
+  }
+  }
