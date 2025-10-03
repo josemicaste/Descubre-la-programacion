@@ -1,0 +1,28 @@
+void main(){
+  animate(raton);
+  }
+
+void raton(){
+  int X = mouseX;
+  int Y = mouseY;
+  background(X,Y,0);
+   if (mousePressed) {
+     if (mouseButton == RIGHTBUTTON){
+       
+       background(0,X,Y);
+	     println (" boton DERECHO pulsado ");
+     }
+         
+    	if (mouseButton == LEFTBUTTON){
+       
+       background(Y,0,X);
+	     println (" boton IZQUIERDO pulsado ");
+       }
+     }
+    print (" R: " + X);
+  	println (" G: " + Y);
+   }  
+  
+
+ 
+  
