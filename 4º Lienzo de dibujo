@@ -1,0 +1,63 @@
+boolean pintar = true;
+void main (){
+  
+  animate(dibuja);
+}
+  
+void menu(){
+  text("Boton central borra la pantalla",10,10);
+  text("Boton derecho pintar", 10,20);
+  text("Boton izquierdo cambiar tamaño del pincel",10,30);
+}
+
+
+
+
+void dibuja()
+	{
+  pinta();
+  println(pintar);
+  noStroke();
+  if (pintar == true)
+    {
+    if (mouseY < 160)
+      {
+      if (mouseX < 160)
+        {
+        fill(255,0,0);
+        }
+      else
+        {
+        fill(0,255,0);
+        }
+      }
+    else
+      {
+      if (mouseX < 160)
+        {
+        fill(255,0,255);
+        }
+      else
+        {
+        fill(0,255,255);
+        }
+      }
+    ellipse(mouseX, mouseY, 10,10);
+   
+  }
+  }
+void pinta()
+	{
+  if (mouseButton == MIDDLEBUTTON) 
+  	{
+    background(177,177,177);
+    }
+  if (mouseButton == LEFTBUTTON) 
+  	{
+    pintar = true;
+    }
+  if (mouseButton == RIGHTBUTTON) 
+  	{
+    pintar = false;
+    }
+}
