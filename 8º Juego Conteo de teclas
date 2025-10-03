@@ -1,0 +1,238 @@
+//Variables para la tecla "a"
+int NclicA;
+boolean aPulsada;
+boolean sueltoA ;
+println ("aPulsada: " + aPulsada);
+println ("sueltoA: " + sueltoA);
+
+//Variables para la tecla "b"
+int NclicB;
+boolean bPulsada;
+boolean sueltoB ;
+println ("bPulsada: " + bPulsada);
+println ("sueltoB: " + sueltoB);
+
+//Variables para la tecla "p"
+boolean pPulsada;
+boolean sueltoP ;
+
+//Variable del temporizador
+int T_inicio = minute()*60 + second();
+
+int TiempoPartida = 30;
+int Tiempo_juego = (minute()*60 + second() - T_inicio );
+//int Tiempo_Mprincipal = TiempoPartida + 5;
+
+
+
+
+void main () {
+  
+ //animate(juego); 
+animate(menuPrincipal);
+  
+}
+
+
+
+void onKeyPressed(String tecla) {
+	//Detecta que la tecla "a" ha sido pulsada
+  if (tecla == "a" && sueltoA == false) {
+  	aPulsada = true;
+    sueltoA = false;
+    }
+  	//Detecta que la tecla "b" ha sido pulsada
+  if (tecla == "b" && sueltoB == false) {
+  	bPulsada = true;
+    sueltoB = false;
+    }
+  //Detecta que la tecla "p" ha sido pulsada
+  if (tecla == "p" && sueltoP == false) {
+  	pPulsada = true;
+    sueltoP = false;
+    }
+  
+}
+
+
+void onKeyReleased(String tecla) {
+  //Detecta que la tecla "a" ha sido soltada
+  if (tecla == "a") {
+  	aPulsada = false;
+  	sueltoA = false;
+ 	 }
+  //Detecta que la tecla "b" ha sido soltada
+  if (tecla == "b") {
+  	bPulsada = false;
+  	sueltoB = false;
+ 	 }
+  //Detecta que la tecla "p" ha sido soltada
+  if (tecla == "p") {
+  	pPulsada = false;
+  	sueltoP = false;
+ 	 }
+  
+}
+
+
+void menuPrincipal(){
+  
+  background (0,0,0);
+	textSize(15); 
+  fill(255,255,255);
+  text("A ver quien pulsa mas veces ",20,40);
+  text("la tecla que le corresponde.",20,60);
+  text("Player 1: tecla A",80,90);
+  text("Player 2: tecla B",80,110);
+  text("Pulsa (P) para comenzar",40,160);
+  if(pPulsada == true){
+    //Al pulsar P reiniciamos las variables de tiempo
+    T_inicio = minute()*60 + second();
+  	Tiempo_juego = (minute()*60 + second()  );
+		animate(readyGo);
+  }
+}
+
+void readyGo(){
+  
+  Tiempo_juego = (minute()*60 + second()  );
+  println("tiempo inicio, readyGo" + T_inicio);
+  println("tiempo juego, readyGo" + Tiempo_juego);
+  
+  background (0,0,0);
+  fill(255,255,255);
+  ellipse(160,160,200,200);
+  fill(0,0,0);
+  textSize(80);
+  text( T_inicio + 3 - Tiempo_juego,130,190);
+  
+  if (T_inicio + 3 - Tiempo_juego == 0){
+    T_inicio = minute()*60 + second();
+    Tiempo_juego = (minute()*60 + second() - T_inicio );
+    animate(juego);
+  }
+}
+
+void juego(){
+  
+  
+  background(0,0,0);
+  
+  println("Jugando");
+  
+  //HUB Player 1
+  fill(255,0,0);
+  rect(10,10,150,150);
+  fill(255,255,255);
+  text ("Player 1",30,40);
+  text(NclicA, 70,100);
+  
+  //HUB Player 2
+  fill(0,0,255);
+  rect(160,10,150,150);
+  fill(255,255,255);
+  text ("Player 2",190,40);
+  text(NclicB, 230,100);
+  
+  //Fecha y hora 
+  int Tiempo_juego = (minute()*60 + second() - T_inicio );
+  textSize(10);
+ 	text(day() + "/" + month() + "/" + year(),240,280);
+  text(hour() + ":" + minute() + ":" + second(),240,300);
+ 
+  rect(155,10,10,160);
+  rect(10,160,300,10);
+  
+  //HUB tiempo de partida
+  
+  //Cambio de color del circulo central en funcion de quien va ganando
+  if (NclicA > NclicB){
+    fill(255,0,0);
+  }
+  if (NclicB > NclicA){
+    fill(0,0,250);
+  }
+  if (NclicA == NclicB){
+  fill(255,255,255);
+  }
+  ellipse(160,160,50,50);
+  
+  //Centrado del texto del tiempo al pasar de dos caracteres a uno
+  fill(0,0,0);
+  textSize(20);
+  if (TiempoPartida-Tiempo_juego < 10){
+    text (TiempoPartida-Tiempo_juego ,153,169);
+  }
+  else{
+  text (TiempoPartida-Tiempo_juego ,145,169);
+  }
+ 
+  
+  //Conteo de las pulsaciones de la tecla "A"
+  if(aPulsada == true && sueltoA == false){
+    NclicA = NclicA + 1 ;
+    println ("Nclic_A: " + NclicA);
+    sueltoA = true;
+  }
+  //Conteo de las pulsaciones de la tecla "B"
+  if(bPulsada == true && sueltoB == false){
+    NclicB = NclicB + 1 ;
+    println ("Nclic_B: " + NclicB);
+    sueltoB = true;
+  }
+  
+  if (Tiempo_juego  > TiempoPartida){
+    animate(finJuego);
+  }
+}
+    
+void finJuego(){
+ 
+  if (NclicB<NclicA){
+     background(255,0,0);
+    fill(255,255,255);
+    text("Player 1 WIN!!",75,100);
+  	text("Pulsaciones: " + NclicA, 70,160);
+	}
+  if (NclicB>NclicA){
+     background(0,0,255);
+     fill(255,255,255);
+    text("Player 2 WIN!!",75,100);
+  	text("Pulsaciones: " + NclicB, 70,140);
+	}
+  if (NclicB==NclicA){
+     background(255,255,255);
+     fill(0,0,0);
+    text("Han empatado",75,100);
+  	text("Pulsaciones: " + NclicA, 70,140);
+  }
+  
+  
+  //boton PLAY
+  fill(0,255,237);
+  rect(90,200,140,40);
+  fill(0,0,0);
+  text("PLAY", 125,230);
+  
+  
+  if(mousePressed){
+  if(mouseX > 90 && mouseX <230 && mouseY >200 && mouseY < 240);{
+    T_inicio = minute()*60 + second();
+    NclicA = 0;
+    NclicB = 0;
+    animate(menuPrincipal);
+  }
+}
+  
+  }
+
+    
+    
+    
+  
+ 
+   
+
+
+  
+
