@@ -1,0 +1,36 @@
+double R = 255;
+double G = 0;
+double B = 0;
+int posX = 0;
+
+void main(){
+  
+for (int i=0; i<360; i++){
+  noStroke();
+
+  //De rojo a amarillo
+  if (G+3*i <= 255.0){
+    fill(R,G+3*i,0);
+    posX = posX + 1;
+    rect(posX,10,10,10);
+  }
+}
+for (int i=0; i<360; i++){
+  noStroke();  
+  //De amarillo a verde
+
+  if (R+3*i <= 255.0){
+    fill(R,G,0);
+    rect(0+i,20,10,10);
+  }
+}
+  
+  fill(R,G+3*i,0);
+ Amarillo fill(255,255,0);
+  
+  
+}
+  
+ 
+ 
+	 
