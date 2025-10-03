@@ -1,0 +1,18 @@
+boolean pulsado;
+int contador;
+void main () {
+  animate(contadorClick);
+} 
+
+void contadorClick(){
+  background(0,0,0);
+  if(mousePressed == true && pulsado == false) {
+    contador +=1;
+    pulsado = true;
+    } 
+  if(mousePressed == false) {
+    
+    pulsado = false;
+  } 
+  textSize(50);
+  text(contador, 120,160);}
