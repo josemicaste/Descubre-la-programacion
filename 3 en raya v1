@@ -1,0 +1,574 @@
+/*Tres en raya 1*/
+// variables
+int r;
+int g;
+int b; 
+boolean pulsadoupc=false;
+boolean pulsadoupl=false;
+boolean pulsadoupr=false;
+boolean pulsadodownc=false;
+boolean pulsadodownl=false;
+boolean pulsadodownr=false;
+boolean pulsadocentc=false;
+boolean pulsadocentl=false;
+boolean pulsadocentr=false;
+int cr=0;
+int cb=0;
+
+// fichas
+void fichaupl (){
+  fill(r,g,b);
+  ellipse(80, 80, 50,50);
+  }
+void fichaupc (){
+  fill(r,g,b);
+  ellipse(160, 80, 50,50);
+  }
+void fichaupr (){
+  fill(r,g,b);
+  ellipse(240, 80, 50,50);
+  }
+void fichacentl (){
+  fill(r,g,b);
+  ellipse(80,160, 50,50);
+	}
+void fichacentc (){
+  fill(r,g,b);
+  ellipse(160,160, 50,50);
+  }
+void fichacentr (){
+  fill(r,g,b);
+  ellipse(240,160, 50,50);
+  }
+void fichadownl (){
+  fill(r,g,b);
+  ellipse(80, 240, 50,50);
+  }
+void fichadownc (){
+  fill(r,g,b);
+  ellipse(160, 240, 50,50);
+  }
+void fichadownr (){
+  fill(r,g,b);
+  ellipse(240, 240, 50,50);
+  }
+
+void dibuja() 
+// fichas del centro
+{
+  print (cr);
+   print (cr);
+   print (cr);
+  print (cb);
+  
+         
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadocentc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 185 && mouseY > 135 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichacentc();
+    mousePressed =false;
+    pulsadocentc=true;
+    cr=cr+1;
+        } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadocentc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 185 && mouseY > 135 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichacentc();
+    mousePressed =false;
+    pulsadocentc=true;
+    cb=cb+1; 
+   }  
+  }
+    if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadocentc==true &&mouseX 
+        < 185 && mouseX > 135 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentc();
+    mousePressed =false;
+    pulsadocentc=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadocentc==true &&mouseX 
+        < 185 && mouseX > 135 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentc();
+    mousePressed =false;
+    pulsadocentc=false;
+    cb=cb-1;  
+   }
+    }
+  
+  //
+	
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadocentl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 185 && mouseY > 135 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichacentl();
+    mousePressed =false;
+    pulsadocentl=true;
+     cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadocentl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 185 && mouseY > 135 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichacentl();
+    mousePressed =false;
+    pulsadocentl=true;
+    cb=cb+1;  
+    }  
+   }
+    if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadocentl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentl();
+    mousePressed =false;
+    pulsadocentl=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadocentl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentl();
+    mousePressed =false;
+    pulsadocentl=false;
+    cb=cb-1;  
+   }
+    }  
+ //
+   if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadocentr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 185 && mouseY > 135 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichacentr();
+    mousePressed =false;
+    pulsadocentr=true;
+    cr=cr+1;
+     
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadocentr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 185 && mouseY > 135 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichacentr();
+    mousePressed =false;
+    pulsadocentr=true;
+    cb=cb+1; 
+    }  
+   }  
+  
+  if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadocentr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentr();
+    mousePressed =false;
+    pulsadocentr=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadocentr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 185 && mouseY > 135) {
+    r=255;
+    g=255;
+    b=255;
+    fichacentr();
+    mousePressed =false;
+    pulsadocentr=false;
+    cb=cb-1;  
+   }
+    }  
+     
+  
+ // fichas de arriba 
+  
+   if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadoupc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 105 && mouseY > 55 ) {
+        
+    r=255;
+    g=0;
+    b=0;
+    fichaupc();
+    mousePressed =false;
+    pulsadoupc=true;
+     cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadoupc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 105 && mouseY > 55 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichaupc();
+    mousePressed =false;
+    pulsadoupc=true;
+    cb=cb+1;  
+   }  
+  }
+  
+   if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadoupc==true &&mouseX 
+       < 185 && mouseX > 135 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupc();
+    mousePressed =false;
+    pulsadoupc=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadoupc==true &&mouseX 
+       < 185 && mouseX > 135 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupc();
+    mousePressed =false;
+    pulsadoupc=false;
+    cb=cb-1;  
+   }
+    }  
+   
+  	
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadoupl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 105 && mouseY > 55 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichaupl();
+    mousePressed =false;
+    pulsadoupl=true;
+     cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadoupl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 105 && mouseY > 55 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichaupl();
+    mousePressed =false;
+    pulsadoupl=true;
+    cb=cb+1; 
+    }  
+   }
+  
+  if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadoupl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupl();
+    mousePressed =false;
+    pulsadoupl=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadoupl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupl();
+    mousePressed =false;
+    pulsadoupl=false;
+    cb=cb-1;  
+   }
+    }  
+  
+	
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadoupr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 105 && mouseY > 55 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichaupr();
+    mousePressed =false;
+    pulsadoupr=true;
+  	cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadoupr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 105 && mouseY > 55 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichaupr();
+    mousePressed =false;
+    pulsadoupr=true;
+  	cb=cb+1; 
+    }  
+   }  
+  
+   if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadoupr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupr();
+    mousePressed =false;
+    pulsadoupr=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadoupr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 105 && mouseY > 55) {
+    r=255;
+    g=255;
+    b=255;
+    fichaupr();
+    mousePressed =false;
+    pulsadoupr=false;
+    cb=cb-1;  
+   }
+    }  
+    
+  
+ 
+   // fichas de abajo 
+  
+   if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadodownc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 265 && mouseY > 215 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichadownc();
+    mousePressed =false;
+    pulsadodownc=true;
+     cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadodownc==false &&mouseX 
+      < 185 && mouseX > 135 && mouseY < 265 && mouseY > 215 ) {
+    r=0;
+    g=0;
+    b=255;
+   	fichadownc();
+    mousePressed =false;
+    pulsadodownc=true;
+    cb=cb+1; 
+   }  
+  }
+  
+   if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadodownc==true &&mouseX 
+       < 185 && mouseX > 135 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+    fichadownc();
+    mousePressed =false;
+  	pulsadodownc=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadodownc==true &&mouseX 
+       < 185 && mouseX > 135 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+    fichadownc();
+    mousePressed =false;
+   	pulsadodownc=false;
+    cb=cb-1;  
+   }
+    }  
+  
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadodownl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 265 && mouseY > 215 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichadownl();
+    mousePressed =false;
+    pulsadodownl=true;
+     cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON && pulsadodownl==false &&mouseX 
+      < 105 && mouseX > 55 && mouseY < 265 && mouseY > 215 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichadownl();
+    mousePressed =false;
+    pulsadodownl=true;
+   	cb=cb+1; 
+    }  
+   }
+  
+   if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON && pulsadodownl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+   	fichadownl();
+    mousePressed =false;
+  	pulsadodownl=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON && pulsadodownl==true &&mouseX 
+       < 105 && mouseX > 55 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+  	fichadownl();
+    mousePressed =false;
+   	pulsadodownl=false;
+    cb=cb-1;  
+   }
+    }  
+        	
+  if (mousePressed == true) {
+      if (mouseButton == LEFTBUTTON && pulsadodownr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 265 && mouseY > 215 ) {
+    r=255;
+    g=0;
+    b=0;
+    fichadownr();
+    mousePressed =false;
+    pulsadodownr=true;
+    cr=cr+1;
+   } 
+  }
+     if (mousePressed == true) {
+      if (mouseButton == RIGHTBUTTON &&  pulsadodownr==false &&mouseX 
+      < 265 && mouseX > 215 && mouseY < 265 && mouseY > 215 ) {
+    r=0;
+    g=0;
+    b=255;
+    fichadownr();
+    mousePressed =false;
+    pulsadodownr=true;
+    cb=cb+1; 
+    }  
+   }  
+  
+  if (mousePressed ==true){
+     if (mouseButton == LEFTBUTTON &&  pulsadodownr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+   	fichadownr();
+    mousePressed =false;
+  	pulsadodownr=false;
+    cr=cr-1;  
+   }
+    }
+    if (mousePressed ==true){
+     if (mouseButton == RIGHTBUTTON &&  pulsadodownr==true &&mouseX 
+       < 265 && mouseX > 215 && mouseY < 265 && mouseY > 215) {
+    r=255;
+    g=255;
+    b=255;
+  	fichadownr();
+    mousePressed =false;
+   	pulsadodownr=false;
+    cb=cb-1;  
+   }
+    } 
+  
+  // LÓGICA
+ 
+ if (cr ==3) {
+   if (pulsadodownr && pulsadodownl&& pulsadodownc == true ||
+   pulsadocentr && pulsadocentl && pulsadocentc == true||
+   pulsadoupr && pulsadoupl && pulsadoupc == true||
+   pulsadodownr && pulsadocentr && pulsadoupr == true ||
+   pulsadodownl && pulsadocentl && pulsadoupl == true ||
+   pulsadodownc && pulsadocentc && pulsadoupc == true ||
+   pulsadodownr && pulsadocentc && pulsadoupl== true  ||  
+   pulsadodownl && pulsadocentc && pulsadoupr== true) 
+    
+  	{
+     println("Tres en raya ROJO ");
+   }
+   }
+  if (cb ==3) {
+   if (pulsadodownr && pulsadodownl&& pulsadodownc == true ||
+   pulsadocentr && pulsadocentl && pulsadocentc == true||
+   pulsadoupr && pulsadoupl && pulsadoupc == true||
+   pulsadodownr && pulsadocentr && pulsadoupr == true ||
+   pulsadodownl && pulsadocentl && pulsadoupl == true ||
+   pulsadodownc && pulsadocentc && pulsadoupc == true ||
+   pulsadodownr && pulsadocentc && pulsadoupl== true  ||  
+   pulsadodownl && pulsadocentc && pulsadoupr== true) 
+    
+  	{
+     println("Tres en raya AZUL ");
+   }
+   }
+}
+void main() {
+  background(0,0,0);
+  tablero ();
+  animate(dibuja);
+}
+void circle(double x, double y) {
+   ellipse(x,y, 50,50);
+}
+void tablero (){
+ for ( int a = 0 ; a < 3 ; a++ ) {
+    noStroke();
+    fill(255,255,255);
+	  circle(80,80+80*a);
+      for ( int i = 0 ; i < 3 ; i++ ) {
+	  	circle(80+80*i,80+80*a);
+  		}
+ }
+}
